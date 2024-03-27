@@ -1,6 +1,6 @@
 <template>
   <a-layout-sider
-      v-model:collapsed="collapsed"  class="sider--top"
+      v-model:collapsed="collapsed" class="sider--top"
       collapsedWidth="50"
       collapsible
       style="max-width: 300px !important; padding-top: 5px"
@@ -16,44 +16,79 @@
     </div>
     <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
       <a-menu-item key="1">
-        <pie-chart-outlined />
-        <span>Option 1</span>
+        <home-outlined/>
+        <span>
+          <router-link :to="{name: 'admin-dashboard'}">
+            Trang chủ
+          </router-link>
+        </span>
       </a-menu-item>
       <a-menu-item key="2">
-        <desktop-outlined />
-        <span>Option 2</span>
+        <desktop-outlined/>
+        <span>
+          <router-link :to="{name: 'admin-users'}">
+          Khách hàng
+          </router-link>
+        </span>
       </a-menu-item>
       <a-sub-menu key="sub1">
         <template #title>
             <span>
-              <user-outlined />
-              <span>User</span>
+              <user-outlined/>
+              <span>Quản lý tài khoản</span>
             </span>
         </template>
-        <a-menu-item key="3">Tom</a-menu-item>
-        <a-menu-item key="4">Bill</a-menu-item>
-        <a-menu-item key="5">Alex</a-menu-item>
+        <a-menu-item key="3">
+          <router-link :to="{name: 'admin-users'}">
+            Tài khoản
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="4">Vai trò</a-menu-item>
+        <a-menu-item key="5">Phân quyền</a-menu-item>
       </a-sub-menu>
       <a-sub-menu key="sub2">
         <template #title>
             <span>
-              <team-outlined />
-              <span>Team</span>
+              <file-outlined/>
+              <span>
+                Bài viết
+              </span>
             </span>
         </template>
-        <a-menu-item key="6">Team 1</a-menu-item>
-        <a-menu-item key="8">Team 2</a-menu-item>
+        <a-menu-item key="6">Danh mục</a-menu-item>
+        <a-menu-item key="8">
+          <router-link :to="{name: 'admin-post'}">
+            Bài viết
+          </router-link>
+        </a-menu-item>
       </a-sub-menu>
       <a-menu-item key="9">
-        <file-outlined />
-        <span>File</span>
+        <file-outlined/>
+        <span>
+          <router-link :to="{name: 'admin-warehouse'}">
+            Kho hàng
+          </router-link>
+        </span>
       </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>
 <script>
 import {defineComponent, ref} from 'vue';
-import { MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined, MailOutlined, DesktopOutlined, InboxOutlined, AppstoreOutlined } from '@ant-design/icons-vue';
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
+  MailOutlined,
+  DesktopOutlined,
+  InboxOutlined,
+  AppstoreOutlined,
+  UserOutlined,
+  TeamOutlined,
+  FileOutlined,
+  HomeOutlined
+} from '@ant-design/icons-vue';
+
 export default defineComponent({
   components: {
     MenuFoldOutlined,
@@ -63,8 +98,12 @@ export default defineComponent({
     DesktopOutlined,
     InboxOutlined,
     AppstoreOutlined,
+    UserOutlined,
+    TeamOutlined,
+    FileOutlined,
+    HomeOutlined
   },
-  data () {
+  data() {
     return {
       selectedKeys: ref(['1']),
     }
@@ -73,7 +112,7 @@ export default defineComponent({
     collapsed: Boolean
   },
   methods: {
-    showSidebar(){
+    showSidebar() {
       if (this.collapsed === true) {
         document.getElementsByClassName('sider--top')[0].style.width = '50px'
       } else {

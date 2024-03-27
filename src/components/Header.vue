@@ -1,11 +1,8 @@
 <template>
     <div class="d-flex justify-content-between" style="padding: 0 25px">
-<!--      <div class="col-1 d-flex d-sm-none justify-content-center align-items-center">-->
-<!--        <span @click="showDrawerMenu">x</span>-->
-<!--      </div>-->
       <div class="d-flex justify-content-start">
-        <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important','marginTop': '20px'}"/>
-        <MenuUnfoldOutlined v-else @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important','marginTop': '20px'}"/>
+        <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
+        <MenuUnfoldOutlined v-else @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
           <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS - BÃI ĐỖ XE EPARKING</span>
       </div>
       <div class="d-flex justify-content-end pt-3">
@@ -15,7 +12,7 @@
               <a-menu-item key="1">
                 Thông tin chi tiết
               </a-menu-item>
-              <a-menu-item key="2">
+              <a-menu-item key="2" @click="logout">
                 Đăng xuất
               </a-menu-item>
             </a-menu>
@@ -37,6 +34,8 @@
 <script>
 import { MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons-vue";
 import { defineComponent, ref } from 'vue';
+import {createRouter as route} from "vue-router";
+import router from "../router/index.js";
 export default defineComponent({
   components: {
     MenuFoldOutlined,
@@ -58,6 +57,10 @@ export default defineComponent({
      changeCollapsed(){
        this.collapsedTmp = !this.collapsed
       this.$emit('collapsedChanged',this.collapsedTmp)
+    },
+    logout () {
+       localStorage.clear()
+       router.push({path: '/login'})
     }
   },
 });

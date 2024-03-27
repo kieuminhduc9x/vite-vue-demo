@@ -3,10 +3,12 @@ import axios from 'axios'
 import notification from 'ant-design-vue/es/notification'
 import { VueAxios } from './axios'
 import { deepTrim } from './common'
+import APIConfig from "../api/config.js";
 
+console.log(import.meta,APIConfig,'APIConfig')
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_API_SERVER_URL,
+  baseURL: APIConfig.base,
   timeout: 720000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'

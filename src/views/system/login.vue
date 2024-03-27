@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="background-login">
-      <a-row :gutter="16" style="width: 100%; margin-left: 0px!important; margin-right: 0px@important">
+      <a-row :gutter="16" style="width: 100%; margin-left: 0 !important; margin-right: 0 !important">
         <a-col :lg="9" :md="9" :xs="0"></a-col>
         <a-col :lg="6" :md="6" :xs="24">
           <a-form
@@ -80,17 +80,17 @@
 <script>
 import {defineComponent, reactive, ref} from 'vue';
 import { notification } from 'ant-design-vue'
-import {axios} from '../../utils/request'
-import api from '../../api/index'
+import {login} from "../../api/login.js";
+import { useRouter} from "vue-router";
 
 export default defineComponent({
   setup() {
 
-
-    const apiUrl = import.meta.env.VUE_APP_API_SERVER_URL
-
     // refs của form login
     const formLoginRef = ref();
+    const router = useRouter()
+
+
 
     // thông tin params form đăng nhập
     const formLogin = reactive({
@@ -104,24 +104,29 @@ export default defineComponent({
     // Submit đăng nhập
     const handleSubmit = async values => {
       if (values) {
-        loading.value = true
+        // loading.value = true
+        const params = {
+          username: values.username,
+          password: values.password,
+        }
         try {
           // Gọi API login
-          const response = await axios.post(apiUrl +  api.login, {
-            username: values.username,
-            password: values.password,
-          })
+          const response = await login(params)
           console.log(response)
-          console.log(response.data)
-          console.log(response.data.data.userData)
-          if(response.data.result_status === 1) {
+          if(response) {
+            router.push({name: 'admin-users'});
+
+          }
+
+          if(response.result_status === 1) {
             loading.value = false
             console.log('Đăng nhập thành công', response.data);
-            this.$router.push({name: 'users'});
+            router.push({name: 'admin-users'});
+            loginSuccess(response)
           } else {
             loading.value = false
             notification.error({
-              message: response.data.message
+              message: response.error
             })
           }
 
@@ -134,7 +139,7 @@ export default defineComponent({
     }
     const loginSuccess = (response) => {
       if (response.result_status === 1) {
-        this.$router.push({name: 'transactionManagement'})
+        router.push({name: 'admin-users'});
       }
     }
 
@@ -142,6 +147,7 @@ export default defineComponent({
       loading,
       formLoginRef,
       formLogin,
+      router,
       handleSubmit,
       loginSuccess
     };

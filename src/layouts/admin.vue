@@ -5,10 +5,11 @@
       <a-layout-header style="background: #fff; padding: 0" >
         <Header :collapsed.sync="collapsed" @collapsedChanged="collapsedChanged"></Header>
       </a-layout-header>
-      <a-layout-content style="margin: 0 16px">
+      <a-layout-content slot="content">
+        <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
-        Ant Design ©2018 Created by Ant UED
+
       </a-layout-footer>
     </a-layout>
   </a-layout>

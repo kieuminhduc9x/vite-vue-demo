@@ -1,5 +1,6 @@
 import api from './index'
-import { axios } from '@/utils/request'
+import { axios } from '../utils/request'
+import APIConfig from "./config.js";
 
 /**
  * login func
@@ -12,12 +13,17 @@ import { axios } from '@/utils/request'
  * @param parameter
  * @returns {*}
  */
-export async function login (parameter) {
-  return axios({
-    url: api.Login,
-    method: 'post',
-    data: parameter
-  })
+// export async function login (parameter) {
+//   return axios({
+//     url: api.Login,
+//     method: 'post',
+//     data: parameter
+//   })
+// }
+
+export async function login(parameter) {
+  const url = `${APIConfig.base} + ${api.login}`
+  return axios.post(url,parameter )
 }
 
 export function getInfo () {
