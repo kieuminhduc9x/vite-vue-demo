@@ -3,7 +3,7 @@
       <div class="d-flex justify-content-start">
         <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
         <MenuUnfoldOutlined v-else @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
-          <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS - BÃI ĐỖ XE EPARKING</span>
+          <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS</span>
       </div>
       <div class="d-flex justify-content-end pt-3">
         <a-dropdown :trigger="'click'">

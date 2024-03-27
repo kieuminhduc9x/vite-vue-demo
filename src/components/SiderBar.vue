@@ -26,7 +26,7 @@
       <a-menu-item key="2">
         <desktop-outlined/>
         <span>
-          <router-link :to="{name: 'admin-users'}">
+          <router-link :to="{name: 'admin-customer'}">
           Khách hàng
           </router-link>
         </span>
@@ -43,8 +43,16 @@
             Tài khoản
           </router-link>
         </a-menu-item>
-        <a-menu-item key="4">Vai trò</a-menu-item>
-        <a-menu-item key="5">Phân quyền</a-menu-item>
+        <a-menu-item key="4">
+          <router-link :to="{name: 'admin-role'}">
+            Vai trò
+          </router-link>
+        </a-menu-item>
+        <a-menu-item key="5">
+          <router-link :to="{name: 'admin-permission'}">
+            Phân quyền
+          </router-link>
+        </a-menu-item>
       </a-sub-menu>
       <a-sub-menu key="sub2">
         <template #title>
@@ -55,7 +63,11 @@
               </span>
             </span>
         </template>
-        <a-menu-item key="6">Danh mục</a-menu-item>
+        <a-menu-item key="6">
+          <router-link :to="{name: 'admin-caterogy'}">
+            Danh mục
+          </router-link>
+        </a-menu-item>
         <a-menu-item key="8">
           <router-link :to="{name: 'admin-post'}">
             Bài viết

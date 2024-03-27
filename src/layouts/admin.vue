@@ -5,7 +5,7 @@
       <a-layout-header style="background: #fff; padding: 0" >
         <Header :collapsed.sync="collapsed" @collapsedChanged="collapsedChanged"></Header>
       </a-layout-header>
-      <a-layout-content slot="content">
+      <a-layout-content slot="content" style="padding: 5px 15px">
         <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
