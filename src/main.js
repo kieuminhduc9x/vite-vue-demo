@@ -3,11 +3,8 @@ import './style.css'
 import App from './App.vue'
 import router from './router/index.js'
 import Antd from 'ant-design-vue'
-// import VueIcons from 'vue-icons'
-// import SvgIcon from 'vue3-icon'
 
 import 'ant-design-vue/dist/reset.css'
-// import 'ant-design/icons-vue'
 
 import 'bootstrap/dist/css/bootstrap-grid.css'
 import 'bootstrap/dist/css//bootstrap-utilities.css'
@@ -18,11 +15,16 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(fas, fab, far);
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Camera from "simple-vue-camera";
+// import Videojs from 'video.js'
+
 
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
-// app.component("svg-icon", SvgIcon);
-// app.use(VueIcons)
+app.component('camera', Camera)
+// app.component('video', Videojs)
 app.use(Antd)
 app.use(router)
 app.mount('#app')

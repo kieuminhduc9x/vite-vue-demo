@@ -18,7 +18,7 @@
       <a-menu-item key="1">
         <home-outlined/>
         <span>
-          <router-link :to="{name: 'admin-dashboard'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-dashboard'}">
             Trang chủ
           </router-link>
         </span>
@@ -26,7 +26,7 @@
       <a-menu-item key="2">
         <desktop-outlined/>
         <span>
-          <router-link :to="{name: 'admin-customer'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-customer'}">
           Khách hàng
           </router-link>
         </span>
@@ -39,17 +39,17 @@
             </span>
         </template>
         <a-menu-item key="3">
-          <router-link :to="{name: 'admin-users'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-users'}">
             Tài khoản
           </router-link>
         </a-menu-item>
         <a-menu-item key="4">
-          <router-link :to="{name: 'admin-role'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-role'}">
             Vai trò
           </router-link>
         </a-menu-item>
         <a-menu-item key="5">
-          <router-link :to="{name: 'admin-permission'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-permission'}">
             Phân quyền
           </router-link>
         </a-menu-item>
@@ -64,12 +64,12 @@
             </span>
         </template>
         <a-menu-item key="6">
-          <router-link :to="{name: 'admin-caterogy'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-caterogy'}">
             Danh mục
           </router-link>
         </a-menu-item>
         <a-menu-item key="8">
-          <router-link :to="{name: 'admin-post'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-post'} ">
             Bài viết
           </router-link>
         </a-menu-item>
@@ -77,7 +77,7 @@
       <a-menu-item key="9">
         <file-outlined/>
         <span>
-          <router-link :to="{name: 'admin-warehouse'}">
+          <router-link :to="{name: 'admin-warehouse'}" class="text-decoration-none">
             Kho hàng
           </router-link>
         </span>

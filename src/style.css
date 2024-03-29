@@ -1,0 +1,9 @@
+body {
+    .ant-form-item-label{
+        font-weight: inherit;
+    }
+    .ant-card-head-title {
+        font-size: 18px;
+        font-weight: inherit;
+    }
+}
