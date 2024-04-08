@@ -1,5 +1,5 @@
 <template v-slot:breadcrumb>
-  <div class="d-flex justify-content-start bg-white h-[30px]  p-2">
+  <div class="d-flex justify-content-start h-[30px] ps-3" style="background-color: #f5f5f5">
     <a-breadcrumb separator=">">
       <a-breadcrumb-item>
         <HomeOutlined style="margin-bottom: 5px"/>
@@ -7,7 +7,7 @@
       <a-breadcrumb-item
           v-for="(item, index) in breadcrumbs"
           :key="index"
-          :class=" index === breadcrumbs.length - 1 ? 'active' : '' ">{{ item.name }}
+          :class=" index === breadcrumbs.length - 1 ? 'active pt-1' : '' ">{{ item.name }}
       </a-breadcrumb-item>
     </a-breadcrumb>
   </div>

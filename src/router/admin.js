@@ -39,9 +39,9 @@ const adminRouter = [
                 component: () => import("../views/post/index.vue")
             },
             {
-                path: 'caterogy',
-                name: 'admin-caterogy',
-                component: () => import("../views/caterogy/index.vue")
+                path: 'category',
+                name: 'admin-category',
+                component: () => import("../views/category/index.vue")
             },
             {
                 path: 'warehouse',

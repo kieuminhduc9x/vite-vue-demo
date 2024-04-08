@@ -64,7 +64,7 @@
             </span>
         </template>
         <a-menu-item key="6">
-          <router-link class="text-decoration-none" :to="{name: 'admin-caterogy'}">
+          <router-link class="text-decoration-none" :to="{name: 'admin-category'}">
             Danh mục
           </router-link>
         </a-menu-item>
@@ -79,6 +79,14 @@
         <span>
           <router-link :to="{name: 'admin-warehouse'}" class="text-decoration-none">
             Kho hàng
+          </router-link>
+        </span>
+      </a-menu-item>
+      <a-menu-item key="10">
+        <EnvironmentOutlined />
+        <span>
+          <router-link :to="{name: 'admin-map'}" class="text-decoration-none">
+            Bản đồ
           </router-link>
         </span>
       </a-menu-item>
@@ -98,7 +106,8 @@ import {
   UserOutlined,
   TeamOutlined,
   FileOutlined,
-  HomeOutlined
+  HomeOutlined,
+  EnvironmentOutlined
 } from '@ant-design/icons-vue';
 
 export default defineComponent({
@@ -113,7 +122,8 @@ export default defineComponent({
     UserOutlined,
     TeamOutlined,
     FileOutlined,
-    HomeOutlined
+    HomeOutlined,
+    EnvironmentOutlined
   },
   data() {
     return {
