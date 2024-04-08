@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="dashboard">
     <a-row :gutter="16">
       <a-col :lg="6" :md="6" :xs="24">
         <div
@@ -181,5 +181,9 @@ export default {
   padding: 15px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#dashboard {
+  width: 100%;
+  padding: 12px;
 }
 </style>

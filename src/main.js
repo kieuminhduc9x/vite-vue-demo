@@ -19,7 +19,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Camera from "simple-vue-camera";
 // import Videojs from 'video.js'
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import 'leaflet/dist/leaflet.css';
 
+Vue.component('l-map', LMap);
+Vue.component('l-tile-layer', LTileLayer);
+Vue.component('l-marker', LMarker);
 
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)

@@ -9,6 +9,11 @@ const adminRouter = [
                 component: () => import("../views/dashboard/index.vue")
             },
             {
+                path: 'map',
+                name: 'admin-map',
+                component: () => import("../views/map/index.vue")
+            },
+            {
                 path: 'users',
                 name: 'admin-users',
                 component: () => import("../views/users/index.vue")
