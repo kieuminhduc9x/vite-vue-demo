@@ -6,4 +6,20 @@ body {
         font-size: 18px;
         font-weight: inherit;
     }
+    .ant-menu-item {
+        .ant-menu-title-content {
+            display: flex;
+            justify-content: flex-start;
+            .anticon{
+                align-content: center;
+            }
+        }
+    }
+    .ant-menu-submenu-inline > .ant-menu-submenu-title > .ant-menu-title-content > span{
+        display: flex;
+        justify-content: flex-start;
+        .anticon {
+            align-content: center;
+        }
+    }
 }
