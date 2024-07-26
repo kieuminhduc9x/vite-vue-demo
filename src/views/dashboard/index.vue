@@ -115,6 +115,7 @@ import BarChart from '../../components/chart/BarChart.vue';
 import PieChart from '../../components/chart/PieChart.vue';
 import {TeamOutlined, UserOutlined} from '@ant-design/icons-vue'
 import columns from "./columns.js";
+import io from 'socket.io-client';
 
 export default {
   components: {
@@ -171,7 +172,25 @@ export default {
       totalUser: 0,
       totalUnit: 0
     };
+  },
+  mounted() {
+    this.setupWebSocket();
+  },
+
+  methods: {
+    setupWebSocket() {
+      const socket = io('http://localhost:4000');
+      socket.on('newTransactionData', (newData) => {
+        this.updateChart(newData);
+      });
+    },
+    updateChart(newData) {
+      this.dataChart.labels.push(newData.label);
+      this.dataChart.datasets[0].data.push(newData.value);
+      this.$refs.barChart.update();
+    }
   }
+
 };
 </script>
 <style lang="less">
