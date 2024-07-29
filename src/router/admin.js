@@ -47,6 +47,11 @@ const adminRouter = [
                 path: 'warehouse',
                 name: 'admin-warehouse',
                 component: () => import("../views/warehouse/index.vue")
+            },
+            {
+                path: 'chart-evn',
+                name: 'admin-chart-evn',
+                component: () => import("../views/chart_env/index.vue")
             }
         ]
     }

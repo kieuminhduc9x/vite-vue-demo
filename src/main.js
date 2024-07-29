@@ -26,6 +26,21 @@ import Camera from "simple-vue-camera";
 // Vue.component('l-tile-layer', LTileLayer);
 // Vue.component('l-marker', LMarker);
 
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+
+// Đăng ký các thành phần cần thiết
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    PointElement, // Đăng ký PointElement cho các biểu đồ đường hoặc điểm
+    LineElement,  // Đăng ký LineElement cho biểu đồ đường
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement
+);
+
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('camera', Camera)

@@ -1143,10 +1143,10 @@
     "escape-string-regexp" "^1.0.5"
     "supports-color" "^5.3.0"
 
-"chart.js@^4.1.1", "chart.js@^4.4.2":
-  "integrity" "sha512-6GD7iKwFpP5kbSD4MeRRRlTnQvxfQREy36uEtm1hzHzcOqwWx0YEHuspuoNlslu+nciLIB7fjjsHkUv/FzFcOg=="
-  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-4.4.2.tgz"
-  "version" "4.4.2"
+"chart.js@^4.1.1", "chart.js@^4.4.3":
+  "integrity" "sha512-qK1gkGSRYcJzqrrzdR6a+I0vQ4/R+SoODXyAjscQ/4mzuNzySaMCd+hyVxitSY1+L2fjPD1Gbn+ibNqRmwQeLw=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-4.4.3.tgz"
+  "version" "4.4.3"
   dependencies:
     "@kurkle/color" "^0.3.0"
 
@@ -2329,6 +2329,11 @@
   "resolved" "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   "version" "1.0.2"
 
+"uuid@^10.0.0":
+  "integrity" "sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-10.0.0.tgz"
+  "version" "10.0.0"
+
 "video.js@^7 || ^8", "video.js@^8", "video.js@^8.10.0":
   "integrity" "sha512-7UeG/flj/pp8tNGW8WKPP1VJb3x2FgLoqUWzpZqkoq5YIyf6MNzmIrKtxprl438T5RVkcj+OzV8IX4jYSAn4Sw=="
   "resolved" "https://registry.npmjs.org/video.js/-/video.js-8.10.0.tgz"
@@ -2431,10 +2436,10 @@
   "resolved" "https://registry.npmjs.org/vue-axios/-/vue-axios-3.5.2.tgz"
   "version" "3.5.2"
 
-"vue-chartjs@^5.3.0":
-  "integrity" "sha512-8XqX0JU8vFZ+WA2/knz4z3ThClduni2Nm0BMe2u0mXgTfd9pXrmJ07QBI+WAij5P/aPmPMX54HCE1seWL37ZdQ=="
-  "resolved" "https://registry.npmjs.org/vue-chartjs/-/vue-chartjs-5.3.0.tgz"
-  "version" "5.3.0"
+"vue-chartjs@^5.3.1":
+  "integrity" "sha512-rZjqcHBxKiHrBl0CIvcOlVEBwRhpWAVf6rDU3vUfa7HuSRmGtCslc0Oc8m16oAVuk0erzc1FCtH1VCriHsrz+A=="
+  "resolved" "https://registry.npmjs.org/vue-chartjs/-/vue-chartjs-5.3.1.tgz"
+  "version" "5.3.1"
 
 "vue-icons@^2.0.0":
   "integrity" "sha512-Ju6bRzEkSvxvRBXPbK7Z6bvhCdg60tP0J8SnW+FjhvbJx2rzJhCK5/W2FHgv1/xe9pDEQytdHE6pyYsMvjEFQw=="

@@ -90,6 +90,14 @@
           </router-link>
         </span>
       </a-menu-item>
+      <a-menu-item key="11">
+        <PieChartOutlined />
+        <span>
+          <router-link :to="{name: 'admin-chart-evn'}" class="text-decoration-none">
+            Biểu đồ
+          </router-link>
+        </span>
+      </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>

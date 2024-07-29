@@ -1,14 +1,19 @@
 <template>
   <div>
-    <Pie :data="data" :options="options" />
+    <Pie :data="data" :options="options" ref="pieChart" />
   </div>
 </template>
 
 <script>
-import { Pie } from 'vue-chartjs'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-ChartJS.register(ArcElement, Tooltip, Legend)
+import { Pie } from 'vue-chartjs';
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
 export default {
+  components: {
+    Pie
+  },
   props: {
     data: {
       type: Object,
@@ -19,8 +24,15 @@ export default {
       required: true
     }
   },
-  components: {
-    Pie
-  },
-}
+  watch: {
+    data: {
+      deep: true,
+      handler() {
+        this.$nextTick(() => {
+          this.$refs.pieChart._chart.update();
+        });
+      }
+    }
+  }
+};
 </script>
