@@ -1,23 +1,23 @@
 <template>
   <div id="chart_evn">
     <a-row :gutter="16">
-      <a-col :lg="8" :md="8" :xs="24">
-        <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 250px">
+      <a-col :lg="8" :md="12" :xs="24">
+        <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 400px">
           <BarChart ref="barChart" :data="dataBarChart" :options="optionsBarChart" />
         </a-card>
       </a-col>
-      <a-col :lg="8" :md="8" :xs="24">
-        <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 250px">
+      <a-col :lg="8" :md="12" :xs="24">
+        <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 400px">
           <BarChart ref="horizontalBarChart" :data="dataHorizontalBarChart" :options="optionsHorizontalBarChart" />
         </a-card>
       </a-col>
-      <a-col :lg="8" :md="8" :xs="24">
-        <a-card :title="'Biểu đồ tròn'" style="margin-top: 15px; min-height: 250px">
+      <a-col :lg="8" :md="12" :xs="24">
+        <a-card :title="'Biểu đồ tròn'" style="margin-top: 15px; min-height: 400px">
           <PieChart ref="pieChart" :data="dataPieChart" :options="optionsPieChart" />
         </a-card>
       </a-col>
-      <a-col :lg="8" :md="8" :xs="24">
-        <a-card :title="'Biểu đồ đường'" style="margin-top: 15px; min-height: 250px">
+      <a-col :lg="8" :md="12" :xs="24">
+        <a-card :title="'Biểu đồ đường'" style="margin-top: 15px; min-height: 400px">
           <LineChart ref="lineChart" :data="dataLineChart" :options="optionsLineChart" />
         </a-card>
       </a-col>
@@ -69,13 +69,6 @@ export default {
     const dataHorizontalBarChart = ref({
       labels: ['Hạng mục 1', 'Hạng mục 2', 'Hạng mục 3', 'Hạng mục 4'],
       datasets: [
-        // {
-        //   label: 'Giá trị',
-        //   data: Array.from({ length: 4 }, () => Math.floor(Math.random() * 100)),
-        //   backgroundColor: '#42A5F5',
-        //   borderColor: '#1E88E5',
-        //   borderWidth: 1
-        // }
         {
           label: 'Giá trị 1',
           data: [10, 20, 30, 40],
