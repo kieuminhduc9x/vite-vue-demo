@@ -1,9 +1,9 @@
 <template>
   <a-layout style="min-height: 100vh">
-    <SiderBar :collapsed.sync="collapsed"></SiderBar>
+    <SiderBar ref="siderbar" :collapsed="collapsed" @collapsedChanged="collapsedChanged"></SiderBar>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0" >
-        <Header :collapsed.sync="collapsed" @collapsedChanged="collapsedChanged"></Header>
+        <Header :collapsed="collapsed" @collapsedChanged="collapsedChanged"></Header>
       </a-layout-header>
       <a-layout-content slot="content">
         <router-view></router-view>
@@ -29,16 +29,18 @@ export default defineComponent({
     Header,
     SiderBar
   },
-  data() {
-    return {
-      collapsed: ref(false),
-      selectedKeys: ref(['1']),
+  setup() {
+    const collapsed = ref(false);
+
+    const collapsedChanged = (newValue) => {
+      collapsed.value = newValue;
+      console.log(collapsed.value, 'collapsedChanged');
     };
-  },
-  methods: {
-    collapsedChanged(newValue) {
-      this.collapsed = newValue
-    }
+
+    return {
+      collapsed,
+      collapsedChanged
+    };
   }
 });
 </script>

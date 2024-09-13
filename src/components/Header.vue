@@ -1,26 +1,28 @@
 <template>
-    <div class="d-flex justify-content-between" style="padding: 0 25px">
-      <div class="d-flex justify-content-start">
-        <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
-        <MenuUnfoldOutlined v-else @click="changeCollapsed" :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
-          <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS</span>
-      </div>
-      <div class="d-flex justify-content-end pt-3">
-        <a-dropdown :trigger="'click'">
-          <template #overlay>
-            <a-menu>
-              <a-menu-item key="1">
-                Thông tin chi tiết
-              </a-menu-item>
-              <a-menu-item key="2" @click="logout">
-                Đăng xuất
-              </a-menu-item>
-            </a-menu>
-          </template>
-          <font-awesome-icon icon="fa-regular fa-user" size="lg" style="outline: none"/>
-        </a-dropdown>
-      </div>
+  <div class="d-flex justify-content-between" style="padding: 0 25px">
+    <div class="d-flex justify-content-start">
+      <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed"
+                        :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
+      <MenuUnfoldOutlined v-else @click="changeCollapsed"
+                          :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
+      <!--          <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS</span>-->
     </div>
+    <div class="d-flex justify-content-end pt-3">
+      <a-dropdown :trigger="'click'" class="pointer-event">
+        <template #overlay>
+          <a-menu>
+            <a-menu-item key="1">
+              Thông tin chi tiết
+            </a-menu-item>
+            <a-menu-item key="2" @click="logout">
+              Đăng xuất
+            </a-menu-item>
+          </a-menu>
+        </template>
+        <font-awesome-icon icon="fa-regular fa-user" size="lg" style="outline: none"/>
+      </a-dropdown>
+    </div>
+  </div>
   <a-drawer
       v-model:visible="visibleMenu"
       title="Danh sách chức năng"
@@ -32,10 +34,11 @@
   </a-drawer>
 </template>
 <script>
-import { MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons-vue";
-import { defineComponent, ref } from 'vue';
+import {MenuFoldOutlined, MenuUnfoldOutlined} from "@ant-design/icons-vue";
+import {defineComponent, ref} from 'vue';
 import {createRouter as route} from "vue-router";
 import router from "../router/index.js";
+
 export default defineComponent({
   components: {
     MenuFoldOutlined,
@@ -44,25 +47,24 @@ export default defineComponent({
   props: {
     collapsed: Boolean
   },
-  data() {
+  setup(props, { emit }) {
+    const visibleMenu = ref(false);
+
+    const changeCollapsed = () => {
+      emit('collapsedChanged', !props.collapsed);
+    };
+
+    const logout = () => {
+      localStorage.clear();
+      router.push({ path: '/login' });
+    };
+
     return {
-      visibleMenu: false,
-      collapsedTmp: false
-    }
-  },
-  methods: {
-  // showDrawerMenu  (){
-  //     this.visibleMenu = true;
-  //   },
-     changeCollapsed(){
-       this.collapsedTmp = !this.collapsed
-      this.$emit('collapsedChanged',this.collapsedTmp)
-    },
-    logout () {
-       localStorage.clear()
-       router.push({path: '/login'})
-    }
-  },
+      visibleMenu,
+      changeCollapsed,
+      logout
+    };
+  }
 });
 </script>
 <style>

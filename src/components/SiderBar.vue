@@ -1,18 +1,20 @@
 <template>
   <a-layout-sider
-      v-model:collapsed="collapsed" class="sider--top"
-      collapsedWidth="50"
+      ref="sider"
       collapsible
+      :collapsed="collapsed"
+      collapsedWidth="50"
       style="max-width: 300px !important; padding-top: 5px"
       width="270"
-      @collapse="showSidebar">
+      @collapse="handleCollapse">
     <div class="logo">
-      <img
-          v-if="collapsed === true"
-          alt="ATIS"
-          src="../assets/logo_mini.jpg"
-          style="width: 28px; margin: 10px 12px; height: 25px">
-      <img v-else alt="ATIS" src="../assets/logo.png" style="width: 90px; margin: 10px 90px; height: 30px">
+<!--      <img-->
+<!--          v-if="collapsed === true"-->
+<!--          alt="ATIS"-->
+<!--          src="../assets/logo_mini.jpg"-->
+<!--          style="width: 28px; margin: 10px 12px; height: 25px">-->
+<!--      <img v-else alt="ATIS" src="../assets/logo.png" style="width: 90px; margin: 10px 90px; height: 30px">-->
+
     </div>
     <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
       <a-menu-item key="1">
@@ -135,20 +137,16 @@ export default defineComponent({
   },
   data() {
     return {
-      selectedKeys: ref(['1']),
+      selectedKeys: ['1']
     }
   },
   props: {
     collapsed: Boolean
   },
   methods: {
-    showSidebar() {
-      if (this.collapsed === true) {
-        document.getElementsByClassName('sider--top')[0].style.width = '50px'
-      } else {
-        document.getElementsByClassName('sider--top')[0].style.width = '270px'
-      }
-    }
+    handleCollapse(collapsed) {
+      this.$emit('collapsedChanged', collapsed);
+    },
   }
 });
 </script>

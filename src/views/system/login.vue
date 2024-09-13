@@ -12,14 +12,14 @@
               @finish="handleSubmit">
             <a-spin :spinning="loading">
               <div style="padding-top: 15px">
-                <div class="header" style="display: flex; justify-content: center;">
-                  <a href="/">
-                    <img alt="logo" class="logo" src="../../assets/logo.png" style="width: 150px; height: 45px">
-                    <br>
-                  </a>
-                </div>
-                <p style="text-align: center; font-weight: bold; font-size: 24px; margin-top: 15px; color: white">
-                  BÃI ĐỖ EPARKING</p>
+<!--                <div class="header" style="display: flex; justify-content: center;">-->
+<!--                  <a href="/">-->
+<!--                    <img alt="logo" class="logo" src="../../assets/logo.png" style="width: 150px; height: 45px">-->
+<!--                    <br>-->
+<!--                  </a>-->
+<!--                </div>-->
+                <p style="text-align: center;text-transform: uppercase; font-weight: bold; font-size: 24px; margin-top: 15px; color: white">
+                  Đăng nhập</p>
               </div>
               <a-form-item
                   name="username"
@@ -59,16 +59,23 @@
               </a-form-item>
               <a-form-item>
                 <div style="display: flex; justify-content: flex-end">
+                  <a href="#" class="text-decoration-none text-blue-500	font-semibold text-md cursor-pointer">Quên mật khẩu</a>
+                </div>
+                <div style="display: flex; justify-content: flex-end; margin-top: 8px">
                   <a-button
                       size="large"
                       :loading="loading"
                       html-type="submit"
-                      style="background-color: #3499dc; color: #FFFFFF; border: none; width: 45%; text-transform: none; "
+                      style="background-color: rgb(0 81 135); color: #FFFFFF; border: none; width: 45%; text-transform: none; "
+                      class="fw-semibold fs-6"
                   >Đăng nhập
-                    <font-awesome-icon icon="right-to-bracket" style="color: #ffffff; margin-left: 5px"/>
+                    <font-awesome-icon icon="right-to-bracket" style="color: #ffffff; margin-left: 8px"/>
                   </a-button>
                 </div>
               </a-form-item>
+              <div class="bg-red-500 text-white p-4">
+                Đây là một box với Tailwind CSS!
+              </div>
             </a-spin>
           </a-form>
         </a-col>
@@ -109,37 +116,35 @@ export default defineComponent({
           username: values.username,
           password: values.password,
         }
-        try {
-          // Gọi API login
-          const response = await login(params)
-          console.log(response)
-          if(response) {
-            router.push({name: 'admin-users'});
-
-          }
-
-          if(response.result_status === 1) {
-            loading.value = false
-            console.log('Đăng nhập thành công', response.data);
-            router.push({name: 'admin-users'});
-            loginSuccess(response)
-          } else {
-            loading.value = false
-            notification.error({
-              message: response.error
-            })
-          }
-
-        } catch (error) {
-          // Xử lý lỗi
-          console.error('Lỗi đăng nhập:', error)
-        }
+        router.push({name: 'admin-users'});
+        loginSuccess(response)
+        // try {
+        //   // Gọi API login
+        //   const response = await login(params)
+        //   console.log(response)
+        //   //
+        //   // if(response.result_status === 1) {
+        //   //   loading.value = false
+        //   //   console.log('Đăng nhập thành công', response.data);
+        //   //   router.push({name: 'admin-users'});
+        //   //   loginSuccess(response)
+        //   // } else {
+        //   //   loading.value = false
+        //   //   notification.error({
+        //   //     message: response.error
+        //   //   })
+        //   // }
+        //
+        // } catch (error) {
+        //   // Xử lý lỗi
+        //   console.log('Lỗi đăng nhập:', error)
+        // }
 
       }
     }
     const loginSuccess = (response) => {
       if (response.result_status === 1) {
-        router.push({name: 'admin-users'});
+        router.push({name: 'admin-dashboard'});
       }
     }
 
@@ -161,7 +166,7 @@ export default defineComponent({
   width: 100%;
   min-height: 100%;
   height: 100%;
-  background: #f0f2f5 url(../../assets/background_login.jpg) no-repeat 50%;
+  background: #f0f2f5 url(../../assets/wallpaper.jpg) no-repeat 100%;
   background-size: 100%;
   position: absolute;
   top: 0;
