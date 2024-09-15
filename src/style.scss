@@ -15,16 +15,22 @@ body {
         .ant-menu-title-content {
             display: flex;
             justify-content: flex-start;
+            align-items: center;
             .anticon{
                 align-content: center;
+                align-items: center;
+                //margin-top: 12px;
             }
         }
     }
     .ant-menu-submenu-inline > .ant-menu-submenu-title > .ant-menu-title-content > span{
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         .anticon {
             align-content: center;
+            align-items: center;
+            //margin-top: 12px;
         }
     }
 }

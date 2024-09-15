@@ -1,13 +1,13 @@
 <template>
-  <div class="d-flex justify-content-between" style="padding: 0 25px">
-    <div class="d-flex justify-content-start">
+  <div class="w-full flex justify-between" style="padding: 0 25px">
+    <div class="flex justify-content-start">
       <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed"
                         :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
       <MenuUnfoldOutlined v-else @click="changeCollapsed"
                           :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
-      <!--          <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS</span>-->
+<!--                <span style="font-size: 18px ;font-weight: 500; margin-left: 25px">ATIS</span>-->
     </div>
-    <div class="d-flex justify-content-end pt-3">
+    <div class="flex justify-content-end pt-[24px]">
       <a-dropdown :trigger="'click'" class="pointer-event">
         <template #overlay>
           <a-menu>
