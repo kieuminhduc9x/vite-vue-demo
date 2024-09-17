@@ -1,5 +1,5 @@
 <template v-slot:breadcrumb>
-  <div class="d-flex justify-content-start h-[30px] ps-3" style="background-color: #f5f5f5">
+  <div class="d-flex justify-content-start h-[30px] px-3 py-2" style="background-color: #f5f5f5">
     <a-breadcrumb separator=">">
       <a-breadcrumb-item>
         <HomeOutlined style="margin-bottom: 5px"/>

@@ -116,7 +116,8 @@ export default defineComponent({
           username: values.username,
           password: values.password,
         }
-        router.push({name: 'admin-users'});
+        // router.push({name: 'admin-users'});
+        router.push({name: 'admin-dashboard'});
         loginSuccess(response)
         // try {
         //   // Gọi API login

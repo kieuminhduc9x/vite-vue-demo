@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: "http://127.0.0.1:3001", // Thay thế với origin frontend của bạn
+    origin: "http://127.0.0.1:3000", // Thay thế với origin frontend của bạn
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
     credentials: true
@@ -17,7 +17,7 @@ const io = socketIo(server, {
 
 // Cấu hình CORS cho các yêu cầu HTTP
 app.use(cors({
-  origin: "http://127.0.0.1:3001", // Thay thế với origin frontend của bạn
+  origin: "http://127.0.0.1:3000", // Thay thế với origin frontend của bạn
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
   credentials: true
@@ -112,6 +112,10 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
     clearInterval(intervalId);
   });
+});
+
+app.get('/', (req, res) => {
+  res.send('WebSocket server is running');
 });
 
 server.listen(4000, () => {
