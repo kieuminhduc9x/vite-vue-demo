@@ -85,6 +85,14 @@
         </span>
       </a-menu-item>
       <a-menu-item key="10">
+        <file-outlined/>
+        <span>
+          <router-link :to="{name: 'admin-report'}" class="text-decoration-none">
+            Báo cáo
+          </router-link>
+        </span>
+      </a-menu-item>
+      <a-menu-item key="11">
         <EnvironmentOutlined />
         <span>
           <router-link :to="{name: 'admin-map'}" class="text-decoration-none">
@@ -92,7 +100,7 @@
           </router-link>
         </span>
       </a-menu-item>
-      <a-menu-item key="11">
+      <a-menu-item key="12">
         <PieChartOutlined />
         <span>
           <router-link :to="{name: 'admin-chart-evn'}" class="text-decoration-none">
@@ -137,16 +145,67 @@ export default defineComponent({
   },
   data() {
     return {
-      selectedKeys: ['1']
+      selectedKeys: []
     }
   },
   props: {
     collapsed: Boolean
   },
+  watch: {
+    $route(to) {
+      this.updateSelectedKeys(to);
+    }
+  },
+  mounted() {
+    this.updateSelectedKeys(this.$route);
+  },
   methods: {
     handleCollapse(collapsed) {
       this.$emit('collapsedChanged', collapsed);
     },
+    updateSelectedKeys(route) {
+      let selectedKey = '';
+
+      switch (route.name) {
+        case 'admin-dashboard':
+          selectedKey = '1';
+          break;
+        case 'admin-customer':
+          selectedKey = '2';
+          break;
+        case 'admin-users':
+          selectedKey = '3';
+          break;
+        case 'admin-role':
+          selectedKey = '4';
+          break;
+        case 'admin-permission':
+          selectedKey = '5';
+          break;
+        case 'admin-category':
+          selectedKey = '6';
+          break;
+        case 'admin-post':
+          selectedKey = '8';
+          break;
+        case 'admin-warehouse':
+          selectedKey = '9';
+          break;
+        case 'admin-report':
+          selectedKey = '10';
+          break;
+        case 'admin-map':
+          selectedKey = '11';
+          break;
+        case 'admin-chart-evn':
+          selectedKey = '12';
+          break;
+        default:
+          selectedKey = '';
+      }
+
+      this.selectedKeys = [selectedKey];
+    }
   }
 });
 </script>

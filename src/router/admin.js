@@ -52,6 +52,11 @@ const adminRouter = [
                 path: 'chart-evn',
                 name: 'admin-chart-evn',
                 component: () => import("../views/chart_env/index.vue")
+            },
+            {
+                path: 'report',
+                name: 'admin-report',
+                component: () => import("../views/report/index.vue")
             }
         ]
     }

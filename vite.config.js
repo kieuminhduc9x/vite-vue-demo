@@ -3,9 +3,14 @@ import vue from '@vitejs/plugin-vue'
 
 
 export default defineConfig({
-    plugins: [
-        vue(),
-    ],
+    plugins: [vue()],
+    css: {
+        preprocessorOptions: {
+            less: {
+                javascriptEnabled: true
+            }
+        }
+    },
     define: {
         'process.env': {
             VUE_APP_API_URL: process.env.VUE_APP_API_SERVER_URL
