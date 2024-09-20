@@ -35,8 +35,6 @@
           :pagination="false"
       ></a-table>
     </a-card>
-    <Camera v-if="visibleCamera === true" :visibleCamera="visibleCamera" @closeModal="closeModal"></Camera>
-    <Video v-if="visibleVideo === true" :visibleVideo="visibleVideo" @closeModal="closeModalVideo"></Video>
   </div>
 </template>
 <script>
@@ -67,8 +65,6 @@ export default {
       data: [],
       loading: false,
       columns,
-      visibleCamera: false,
-      visibleVideo: false,
       selectedValue: 1,
       radioOptions: [
         {value: 1, label: "Báo cáo tổng hợp doanh thu ngày"},
@@ -85,24 +81,6 @@ export default {
     }
   },
   methods: {
-    showModalCamera() {
-      this.visibleCamera = true
-      console.log(this.visibleCamera)
-    },
-    closeModal() {
-      this.visibleCamera = false
-    },
-
-    showModalVideo() {
-      this.visibleVideo = true
-      console.log(this.visibleVideo)
-    },
-    closeModalVideo() {
-      this.visibleVideo = false
-    },
-    onChangeRadio(e) {
-      this.selectedValue = e.target.value
-    }
   }
 }
 </script>

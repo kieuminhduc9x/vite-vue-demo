@@ -3,22 +3,22 @@
     <a-row :gutter="16">
       <a-col :lg="8" :md="12" :xs="24">
         <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 400px">
-          <BarChart ref="barChart" :data="dataBarChart" :options="optionsBarChart" />
+          <BarChart ref="barChart" :data="dataBarChart" :options="optionsBarChart"/>
         </a-card>
       </a-col>
       <a-col :lg="8" :md="12" :xs="24">
         <a-card :title="'Thống kê giao dịch'" style="margin-top: 15px; min-height: 400px">
-          <BarChart ref="horizontalBarChart" :data="dataHorizontalBarChart" :options="optionsHorizontalBarChart" />
+          <BarChart ref="horizontalBarChart" :data="dataHorizontalBarChart" :options="optionsHorizontalBarChart"/>
         </a-card>
       </a-col>
       <a-col :lg="8" :md="12" :xs="24">
         <a-card :title="'Biểu đồ tròn'" style="margin-top: 15px; min-height: 400px">
-          <PieChart ref="pieChart" :data="dataPieChart" :options="optionsPieChart" />
+          <PieChart ref="pieChart" :data="dataPieChart" :options="optionsPieChart"/>
         </a-card>
       </a-col>
       <a-col :lg="8" :md="12" :xs="24">
         <a-card :title="'Biểu đồ đường'" style="margin-top: 15px; min-height: 400px">
-          <LineChart ref="lineChart" :data="dataLineChart" :options="optionsLineChart" />
+          <LineChart ref="lineChart" :data="dataLineChart" :options="optionsLineChart"/>
         </a-card>
       </a-col>
     </a-row>
@@ -27,8 +27,8 @@
 
 <script>
 import io from 'socket.io-client';
-import { ref, onMounted, nextTick } from 'vue';
-import { Bar, Pie, Line } from 'vue-chartjs';
+import {ref, onMounted, nextTick} from 'vue';
+import {Bar, Pie, Line} from 'vue-chartjs';
 
 export default {
   components: {
@@ -43,11 +43,11 @@ export default {
     const horizontalBarChartRef = ref(null);
 
     const dataBarChart = ref({
-      labels: Array.from({ length: 12 }, (_, i) => `Tháng ${i + 1}`),
+      labels: Array.from({length: 12}, (_, i) => `Tháng ${i + 1}`),
       datasets: [
         {
           label: 'Giao dịch',
-          data: Array.from({ length: 12 }, () => Math.floor(Math.random() * 1000)),
+          data: Array.from({length: 12}, () => Math.floor(Math.random() * 1000)),
           borderColor: '#3e95cd',
           backgroundColor: '#acd5f5',
           fill: true
@@ -103,7 +103,7 @@ export default {
         },
         tooltip: {
           callbacks: {
-            label: function(context) {
+            label: function (context) {
               return `${context.dataset.label}: ${context.raw}`;
             }
           }
@@ -116,7 +116,7 @@ export default {
       datasets: [
         {
           backgroundColor: ['#82d79d', '#fd82c0', '#89edff', '#ee7d7d'],
-          data: Array.from({ length: 4 }, () => Math.floor(Math.random() * 100))
+          data: Array.from({length: 4}, () => Math.floor(Math.random() * 100))
         }
       ]
     });
@@ -127,11 +127,11 @@ export default {
     });
 
     const dataLineChart = ref({
-      labels: Array.from({ length: 12 }, (_, i) => `Tháng ${i + 1}`),
+      labels: Array.from({length: 12}, (_, i) => `Tháng ${i + 1}`),
       datasets: [
         {
           label: 'Doanh thu',
-          data: Array.from({ length: 12 }, () => Math.floor(Math.random() * 1000)),
+          data: Array.from({length: 12}, () => Math.floor(Math.random() * 1000)),
           borderColor: '#ff6384',
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           fill: true
@@ -166,6 +166,27 @@ export default {
         updateCharts(newData);
       });
 
+      // update dữ liệu biểu đồ cột - riêng biệt
+      socket.on('newBarChartData', (newData) => {
+        updateBarCharts(newData);
+      });
+
+      // update dữ liệu biểu đồ cột ngang - riêng biệt
+      socket.on('newHorizontalBarChartData', (newData) => {
+        updateHorizontalBarCharts(newData);
+      });
+
+      // update dữ liệu biểu đồ tròn - riêng biệt
+      socket.on('newPieChartData', (newData) => {
+        updatePieCharts(newData);
+      });
+
+      // update dữ liệu biểu đồ đường - riêng biệt
+      socket.on('newLineChartData', (newData) => {
+        updateLineCharts(newData);
+      });
+
+
       socket.on('connect_error', (error) => {
         console.error('WebSocket connection error:', error);
       });
@@ -183,7 +204,7 @@ export default {
         }
 
         if (horizontalBarChartRef.value) {
-          horizontalBarChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Bar
+          horizontalBarChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Bar ngang
         }
 
         if (pieChartRef.value) {
@@ -195,6 +216,52 @@ export default {
         }
       });
     }
+
+
+    // Cập nật dữ liệu biểu đồ cột dọc
+    function updateBarCharts(newData) {
+      dataBarChart.value = newData.barChart;
+
+      nextTick(() => {
+        if (barChartRef.value) {
+          barChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Bar
+        }
+      });
+    }
+
+    // Cập nật dữ liệu biểu đồ cột ngang
+    function updateHorizontalBarCharts(newData) {
+      dataHorizontalBarChart.value = newData.horizontalBarChart;
+
+      nextTick(() => {
+        if (horizontalBarChartRef.value) {
+          horizontalBarChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Bar ngang
+        }
+      });
+    }
+
+    // Cập nật dữ liệu biểu đồ hình tròn
+    function updatePieCharts(newData) {
+      dataPieChart.value = newData.pieChart;
+
+      nextTick(() => {
+        if (pieChartRef.value) {
+          pieChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Pie
+        }
+      });
+    }
+
+    // Cập nật dữ liệu biểu đồ đường
+    function updateLineCharts(newData) {
+      dataLineChart.value = newData.lineChart;
+
+      nextTick(() => {
+        if (lineChartRef.value) {
+          lineChartRef.value.$data._chart.update(); // Cập nhật biểu đồ Line
+        }
+      });
+    }
+
 
     return {
       barChartRef,

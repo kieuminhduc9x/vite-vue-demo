@@ -106,6 +106,10 @@ io.on('connection', (socket) => {
     };
 
     socket.emit('newChartData', data);
+    socket.emit('newBarChartData', data.barChart);
+    socket.emit('newHorizontalBarChartData', data.horizontalBarChart);
+    socket.emit('newPieChartData', data.pieChart);
+    socket.emit('newLineChartData', data.lineChart);
   }, 1000);
 
   socket.on('disconnect', () => {
