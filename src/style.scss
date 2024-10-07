@@ -11,6 +11,13 @@ body {
         font-size: 18px;
         font-weight: inherit;
     }
+
+    .ant-layout-sider {
+        background-color: white!important;
+    }
+    .ant-layout-sider-trigger {
+        background-color: #447bff !important;
+    }
     .ant-menu-item {
         .ant-menu-title-content {
             display: flex;
@@ -20,6 +27,16 @@ body {
                 align-content: center;
                 align-items: center;
                 //margin-top: 12px;
+            }
+            span {
+                a {
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+            a {
+                font-weight: 500;
+                font-size: 16px;
             }
         }
     }
@@ -31,6 +48,22 @@ body {
             align-content: center;
             align-items: center;
             //margin-top: 12px;
+        }
+        span {
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+
+    .ant-menu-item-selected {
+
+    }
+    .ant-menu-root {
+        padding: 12px 18px!important;
+    }
+    .ant-layout-sider-collapsed {
+        .ant-menu-root {
+            padding: 0!important;
         }
     }
 }

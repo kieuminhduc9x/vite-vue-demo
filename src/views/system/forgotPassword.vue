@@ -12,26 +12,20 @@
               @finish="handleSubmit">
             <a-spin :spinning="loading">
               <div style="padding-top: 15px">
-<!--                <div class="header" style="display: flex; justify-content: center;">-->
-<!--                  <a href="/">-->
-<!--                    <img alt="logo" class="logo" src="../../assets/logo.png" style="width: 150px; height: 45px">-->
-<!--                    <br>-->
-<!--                  </a>-->
-<!--                </div>-->
                 <p style="text-align: center;text-transform: uppercase; font-weight: bold; font-size: 24px; margin-top: 15px; color: white">
-                  Đăng nhập</p>
+                  Quên mật khẩu</p>
               </div>
               <a-form-item
                   name="username"
                   :rules="{
                             required: true,
-                            message: 'Tài khoản bắt buộc nhập',
+                            message: 'Tài khoản hoặc email bắt buộc nhập',
                              trigger: 'change'
                           }">
                 <a-input
                     size="large"
                     type="text"
-                    :placeholder="'Tài khoản'"
+                    :placeholder="'Tài khoản hoặc email'"
                     v-model:value="formLogin.username"
                 >
                   <template #prefix>
@@ -39,37 +33,18 @@
                   </template>
                 </a-input>
               </a-form-item>
-              <a-form-item
-                  name="password"
-                  :rules="{
-                            required: true,
-                             message: 'Mật khẩu bắt buộc nhập',
-                              trigger: 'change'
-                          }">
-                <a-input
-                    size="large"
-                    type="password"
-                    :placeholder="'Mật khẩu'"
-                    v-model:value="formLogin.password"
-                >
-                  <template #prefix>
-                    <font-awesome-icon icon="lock" :style="{ color: 'rgba(0,0,0,.25)', marginRight: '5px' }"/>
-                  </template>
-                </a-input>
-              </a-form-item>
               <a-form-item>
-                <div style="display: flex; justify-content: space-between">
-                  <a href="/register" class="text-decoration-none text-blue-200	font-semibold text-md cursor-pointer">Bạn chưa có tài khoản ?</a>
-                  <a href="/forgot-password" class="text-decoration-none text-blue-200	font-semibold text-md cursor-pointer">Quên mật khẩu</a>
-                </div>
-                <div style="display: flex; justify-content: flex-end; margin-top: 8px">
+<!--                <div style="display: flex; justify-content: space-between">-->
+<!--                  <a href="/register" class="text-decoration-none text-blue-200	font-semibold text-md cursor-pointer">Bạn chưa có tài khoản ?</a>-->
+<!--                </div>-->
+                <div style="display: flex; justify-content: flex-end;">
                   <a-button
                       size="large"
                       :loading="loading"
                       html-type="submit"
                       style="background-color: #0094db; color: #FFFFFF; border: none; width: 45%; text-transform: none; "
                       class="fw-semibold fs-6"
-                  >Đăng nhập
+                  >Gửi
                     <font-awesome-icon icon="right-to-bracket" style="color: #ffffff; margin-left: 8px"/>
                   </a-button>
                 </div>

@@ -8,15 +8,15 @@
       width="270"
       @collapse="handleCollapse">
     <div class="logo">
-<!--      <img-->
-<!--          v-if="collapsed === true"-->
-<!--          alt="ATIS"-->
-<!--          src="../assets/logo_mini.jpg"-->
-<!--          style="width: 28px; margin: 10px 12px; height: 25px">-->
-<!--      <img v-else alt="ATIS" src="../assets/logo.png" style="width: 90px; margin: 10px 90px; height: 30px">-->
+      <img
+          v-if="collapsed === true"
+          alt="ATIS"
+          src="../assets/favicon.ico"
+          style="width: 24px; margin: 10px 12px; height: 24px">
+      <img v-else alt="ATIS" src="../assets/Logo.png" style="width: 129px; margin: 10px 60px; height: 32px">
 
     </div>
-    <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+    <a-menu v-model:selectedKeys="selectedKeys" theme="light" mode="inline">
       <a-menu-item key="1">
         <home-outlined/>
         <span>

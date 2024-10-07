@@ -19,7 +19,7 @@
 <!--                  </a>-->
 <!--                </div>-->
                 <p style="text-align: center;text-transform: uppercase; font-weight: bold; font-size: 24px; margin-top: 15px; color: white">
-                  Đăng nhập</p>
+                  Đăng ký tài khoản</p>
               </div>
               <a-form-item
                   name="username"
@@ -36,6 +36,42 @@
                 >
                   <template #prefix>
                     <font-awesome-icon icon="user" :style="{ color: 'rgba(0,0,0,.25)', marginRight: '5px' }"/>
+                  </template>
+                </a-input>
+              </a-form-item>
+              <a-form-item
+                  name="email"
+                  :rules="{
+                            required: true,
+                            message: 'Email bắt buộc nhập',
+                             trigger: 'change'
+                          }">
+                <a-input
+                    size="large"
+                    type="text"
+                    :placeholder="'Email'"
+                    v-model:value="formLogin.email"
+                >
+                  <template #prefix>
+                    <font-awesome-icon icon="envelope" :style="{ color: 'rgba(0,0,0,.25)', marginRight: '5px' }"/>
+                  </template>
+                </a-input>
+              </a-form-item>
+              <a-form-item
+                  name="phone"
+                  :rules="{
+                            required: true,
+                            message: 'Số điện thoại bắt buộc nhập',
+                             trigger: 'change'
+                          }">
+                <a-input
+                    size="large"
+                    type="text"
+                    :placeholder="'Số điện thoại'"
+                    v-model:value="formLogin.phone"
+                >
+                  <template #prefix>
+                    <font-awesome-icon icon="phone" :style="{ color: 'rgba(0,0,0,.25)', marginRight: '5px' }"/>
                   </template>
                 </a-input>
               </a-form-item>
@@ -58,18 +94,21 @@
                 </a-input>
               </a-form-item>
               <a-form-item>
-                <div style="display: flex; justify-content: space-between">
-                  <a href="/register" class="text-decoration-none text-blue-200	font-semibold text-md cursor-pointer">Bạn chưa có tài khoản ?</a>
-                  <a href="/forgot-password" class="text-decoration-none text-blue-200	font-semibold text-md cursor-pointer">Quên mật khẩu</a>
-                </div>
-                <div style="display: flex; justify-content: flex-end; margin-top: 8px">
+                <div style="display: flex; justify-content: space-between; margin-top: 8px">
+                  <a-button
+                      size="large"
+                      style="background-color: #0094db; color: #FFFFFF; border: none; width: 45%; text-transform: none; "
+                      class="fw-semibold fs-6"
+                      @click="handleToLogin"
+                  >Đăng nhập
+                  </a-button>
                   <a-button
                       size="large"
                       :loading="loading"
                       html-type="submit"
                       style="background-color: #0094db; color: #FFFFFF; border: none; width: 45%; text-transform: none; "
                       class="fw-semibold fs-6"
-                  >Đăng nhập
+                  >Đăng ký
                     <font-awesome-icon icon="right-to-bracket" style="color: #ffffff; margin-left: 8px"/>
                   </a-button>
                 </div>
@@ -146,8 +185,11 @@ export default defineComponent({
     }
     const loginSuccess = (response) => {
       if (response.result_status === 1) {
-        router.push({name: 'admin-dashboard'});
+        handleToLogin()
       }
+    }
+    const handleToLogin = () => {
+        router.push({name: 'login'});
     }
 
     return {
@@ -156,6 +198,7 @@ export default defineComponent({
       formLogin,
       router,
       handleSubmit,
+      handleToLogin,
       loginSuccess
     };
   },

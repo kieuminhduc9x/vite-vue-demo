@@ -11,6 +11,16 @@ const publicRouter = [
                 path: 'login',
                 name: 'login',
                 component: () => import("../views/system/login.vue")
+            },
+            {
+                path: 'register',
+                name: 'register',
+                component: () => import("../views/system/register.vue")
+            },
+            {
+                path: 'forgot-password',
+                name: 'forgotPassword',
+                component: () => import("../views/system/forgotPassword.vue")
             }
         ]
     }
