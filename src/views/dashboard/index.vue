@@ -10,7 +10,7 @@
               (this.totalTransaction)
             }}</span>
           <span style="color: white;font-size: 18px; font-weight: 500; margin-top: 5px; display: block">
-            Tổng giao dịch</span>
+            Tổng đơn hàng</span>
         </div>
       </a-col>
       <a-col :lg="6" :md="6" :xs="24">
@@ -21,7 +21,7 @@
               (this.totalVehicle)
             }}</span>
           <span style="color: white;font-size: 18px; font-weight: 500; margin-top: 5px; display: block">
-            Tổng số xe</span>
+            Tổng số đơn đang vận chuyển</span>
         </div>
       </a-col>
       <a-col :lg="6" :md="6" :xs="24">
@@ -32,7 +32,8 @@
               (this.totalCard)
             }}</span>
           <span style="color: white;font-size: 18px; font-weight: 500; margin-top: 5px; display: block">
-            Số vé tồn</span>
+            Tổng đơn trong kho
+           </span>
         </div>
       </a-col>
       <a-col :lg="6" :md="6" :xs="24">
@@ -43,7 +44,8 @@
               (this.totalViolationVehicle)
             }}</span>
           <span style="color: white;font-size: 18px; font-weight: 500; margin-top: 5px; display: block">
-            Xe vi phạm</span>
+            Tồn kho
+          </span>
         </div>
       </a-col>
     </a-row>
@@ -72,7 +74,7 @@
             <UserOutlined :style="{ fontSize: '48px!important', color: '#ffffff' }" />
           </div>
           <div style="width: 65%; padding: 10px;">
-            <span style="color:#fd4242; font-size: 18px; font-weight: 500; display: block">Tài khoản</span>
+            <span style="color:#fd4242; font-size: 18px; font-weight: 500; display: block">Nhân viên</span>
             <span style="color: black; font-size: 24px; font-weight: 500; display: block; margin-top: 5px">{{
                 (this.totalUser)
               }}</span>
@@ -84,7 +86,7 @@
               <TeamOutlined :style="{ fontSize: '48px!important', color: '#ffffff' }"></TeamOutlined>
           </div>
           <div style="width: 65%; padding: 10px;">
-            <span style="color:rgba(18,114,253,0.88); font-size: 18px; font-weight: 500; display: block">Đơn vị</span>
+            <span style="color:rgba(18,114,253,0.88); font-size: 18px; font-weight: 500; display: block">Kho hàng</span>
             <span style="color: black; font-size: 24px; font-weight: 500; display: block; margin-top: 5px">{{
                 (this.totalUnit)
               }}</span>

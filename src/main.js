@@ -4,11 +4,7 @@ import App from './App.vue'
 import router from './router/index.js'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/reset.css'
-
-// import 'bootstrap/dist/css/bootstrap-grid.css'
-// import 'bootstrap/dist/css//bootstrap-utilities.css'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
+import * as Icons from '@ant-design/icons-vue';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -42,6 +38,10 @@ ChartJS.register(
 );
 
 const app = createApp(App)
+Object.keys(Icons).forEach(key => {
+    app.component(key, Icons[key]);
+});
+
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('camera', Camera)
 // app.component('video', Videojs)

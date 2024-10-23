@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex justify-between" style="padding: 0 25px">
+  <div class="w-full flex justify-between" style="padding: 0 18px">
     <div class="flex justify-content-start">
       <MenuFoldOutlined v-if="collapsed" @click="changeCollapsed"
                         :style="{'color': '#000000', 'fontSize': '20px!important', 'margin-top': '20px'}"/>
@@ -11,7 +11,7 @@
       <a-dropdown :trigger="'click'" class="pointer-event">
         <template #overlay>
           <a-menu>
-            <a-menu-item key="1">
+            <a-menu-item key="1" @click="goToProfile">
               Thông tin chi tiết
             </a-menu-item>
             <a-menu-item key="2" @click="logout">
@@ -59,10 +59,15 @@ export default defineComponent({
       router.push({ path: '/login' });
     };
 
+    const goToProfile = () => {
+      router.push({ name: 'admin-profile' });
+    };
+
     return {
       visibleMenu,
       changeCollapsed,
-      logout
+      logout,
+      goToProfile
     };
   }
 });
